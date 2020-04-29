@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+# paper-entry-generator
+# Generate HTML entries for the personal papers repository
+#
+# Author: Álvaro Galisteo (https://alvaro.ga)
+# Copyright 2020 - GPLv3
+-->
+<html>
+    <head>
+        <title>Paper Entry Generator</title>
+        <style type="text/css">
+            html {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            }
+            .top .left {
+                display: inline-block;
+                width: 45%;
+                vertical-align: top;
+            }
+
+            .top .right {
+                display: inline-block;
+                width: 45%;
+                vertical-align: top;
+            }
+            #entries {
+                margin: 20px 0;
+            }
+
+            #form p {
+                display: inline-block;
+                width: 200px;
+            }
+            textarea {
+                width: 100%;
+                height: 300px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Paper Entry Generator</h1>
+        <div class="top">
+            <div class="left">
+                <h2>Form</h2>
+                <form accept-charset="UTF-8" autocomplete="off" id="form">
+                    <p>Paper name</p>
+                    <input name="name" type="text" value="" required/><br />
+                    <p>Authors<br>(comma separated)</p>
+                    <input name="authors" type="text" value="" required/><br />
+                    <p>Year</p>
+                    <input name="year" type="number" value="" required/><br />
+                    <p>Keywords<br>(comma separated)</p>
+                    <input name="keywords" type="text" value="" required/><br />
+                    <p>DOI (Optional)</p>
+                    <input name="doi" type="text" value=""/><br />
+                </form>
+                <button type="submit" value="Submit" onclick="addEntry();">Add entry</button>
+            </div>
+            <div class="right">
+                <h2>Entries</h2>
+                <div id="entries"></div>
+            </div>
+        </div>
+        <h2>HTML Code</h2>
+        <textarea id="html" name="html"></textarea>
+        <script type="text/javascript">
+            var form = document.getElementById("form");
+            var entries = [];
+
+            function getForm(form) {
+                var object = {};
+                for (var i = 0; i < form.length; i++) {
+                    object[form[i].name] = form[i].value;
+                }
+
+                return object;
+            }
+
+            function addEntry() {
+                var entry = getForm(form);
+                form.reset();
+                var id = entries.length;
+                entry.id = id;
+
+                entry.authors = entry.authors.split(",");
+                entry.keywords = entry.keywords.split(",");
+
+                entries.push(entry);
+                displayEntries();
+            }
+
+            function removeEntry(id) {
+                remove(1, entries);
+                displayEntries();
+            }
+
+            function remove(id, array) {
+                for (var i = 0; i < array.length; i++) {
+                    if(array.id === id) {
+                        array.splice(i, 1);
+                        return;
+                    }
+                }
+            }
+
+            function displayEntries() {
+                document.getElementById("entries").innerHTML = "";
+                document.getElementById("html").innerHTML = "";
+                for (var i = 0; i < entries.length; i++) {
+                    var string = entries[i].name + " " + "<button onclick='removeEntry(" + entries[i].id + ")'>Remove entry</button>";
+                    document.getElementById("entries").innerHTML += string + "<br />";
+
+                    document.getElementById("html").innerHTML += generateEntry(entries[i]) + "\n";
+                }
+
+            }
+
+            /* Entry related functions */
+            function capitalizeFirstLetter(string) {
+                return string.charAt(0).toUpperCase() + string.slice(1);
+            }
+
+            function generateEntry(entry) {
+                var year = entry.year;
+                var authors = entry.authors.join(", ");
+
+                var keywords = entry.keywords;
+                for (var i = 0; i < keywords.length; i++) {
+                    keywords[i] = capitalizeFirstLetter(keywords[i]);
+                }
+                keywords = keywords.join(", ");
+
+                var doi = entry.doi;
+                if (doi !== "") {
+                    doi = "<br>\n    DOI: " + doi + "<br>";
+                } else {
+                    doi = "";
+                }
+
+                var name = entry.name;
+                var path =
+                    year +
+                    "-" +
+                    authors.replace(/\,/g, "").replace(/\./g, "").replace(/\s/g, "-") +
+                    "-" +
+                    name.replace(/\:/g, "").replace(/\s/g, "_") +
+                    ".pdf";
+
+                var output =
+                    "<p>\n" +
+                    "    <span style='font-size: 1.25em'><a href='%assets_url%/papers/" +
+                    path +
+                    "'>" +
+                    name +
+                    "</a></span><br>\n" +
+                    "    <span style='font-size: 1.15em'>" +
+                    authors +
+                    "</span><br>\n" +
+                    "    Keywords: " +
+                    keywords +
+                    doi +
+                    "\n</p>";
+
+                return output;
+            }
+        </script>
+    </body>
+</html>

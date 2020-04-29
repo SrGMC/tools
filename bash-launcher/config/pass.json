@@ -1,0 +1,45 @@
+{
+  "title": "Password Store",
+  "subtitle": "password-store manager",
+  "items": [
+    {
+      "name": "OTP",
+      "description": "Show a One-Time-Password",
+      "type": "command",
+      "run": "pass-helper otp",
+      "color": "white",
+      "wait": "true"
+    },
+    {
+      "name": "List",
+      "description": "List all password-store entries",
+      "type": "command",
+      "run": "pass-helper list",
+      "color": "white",
+      "wait": "true"
+    },
+    {
+      "name": "Show",
+      "description": "Show entry",
+      "type": "command",
+      "run": "pass-helper show",
+      "color": "white",
+      "wait": "true"
+    },
+    {
+      "name": "Insert",
+      "description": "Insert a new multiline entry",
+      "type": "command",
+      "run": "pass-helper insert",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "Back",
+      "description": "",
+      "type": "exit",
+      "color": "red",
+      "wait": "false"
+    }
+  ]
+}

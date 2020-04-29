@@ -1,0 +1,29 @@
+{
+  "title": "Shell Launcher",
+  "subtitle": "Device settings",
+  "items": [
+    {
+      "name": "Increase brightness",
+      "description": "",
+      "type": "command",
+      "run": "system-helper increase",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "Decrease brightness",
+      "description": "",
+      "type": "command",
+      "run": "system-helper decrease",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "Back",
+      "description": "",
+      "type": "exit",
+      "color": "white",
+      "wait": "false"
+    }
+  ]
+}

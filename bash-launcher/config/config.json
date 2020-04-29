@@ -1,0 +1,85 @@
+{
+  "title": "Shell Launcher",
+  "subtitle": "",
+  "items": [
+    {
+      "name": "zsh",
+      "description": "Shell",
+      "type": "command",
+      "run": "zsh",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "pass",
+      "description": "password-store manager",
+      "type": "submenu",
+      "run": "$HOME/.config/launcher/pass.json",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "htop",
+      "description": "System monitor",
+      "type": "command",
+      "run": "htop",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "micro",
+      "description": "Text editor",
+      "type": "command",
+      "run": "micro",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": "files",
+      "description": "nnn file manager",
+      "type": "command",
+      "run": "nnn",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": " ",
+      "description": " "
+    },
+    {
+      "name": "Device settings",
+      "description": " ",
+      "type": "submenu",
+      "run": "$HOME/.config/launcher/settings.json",
+      "color": "white",
+      "wait": "false"
+    },
+    {
+      "name": " ",
+      "description": " "
+    },
+    {
+      "name": "Exit",
+      "description": " ",
+      "type": "exit",
+      "color": "yellow",
+      "wait": "false"
+    },
+    {
+      "name": "Reboot",
+      "description": " ",
+      "type": "command",
+      "run": "system-helper reboot",
+      "color": "yellow",
+      "wait": "false"
+    },
+    {
+      "name": "Shutdown",
+      "description": " ",
+      "type": "command",
+      "run": "system-helper shutdown",
+      "color": "red",
+      "wait": "false"
+    }
+  ]
+}

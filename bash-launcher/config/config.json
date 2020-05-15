@@ -43,6 +43,14 @@
       "wait": "false"
     },
     {
+      "name": "git tools",
+      "description": "git actions for the current repository",
+      "type": "submenu",
+      "run": "$HOME/.config/launcher/git.json",
+      "color": "white",
+      "wait": "false"
+    },
+    {
       "name": " ",
       "description": " "
     },

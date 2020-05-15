@@ -8,18 +8,21 @@
 
 PASS=1
 SETTINGS=1
+GIT=1
 
 # Parse CLI arguments
 for i in "$@"; do
     case $i in
         -np|--no-pass)
-            CONFIGPATH="${i#*=}" ;;
+            PASS=0 ;;
         -ns|--no-settings)
-            CONFIGPATH="${i#*=}" ;;
+            SETTINGS=0 ;;
+        -ng|--no-git)
+            GIT=0 ;;
         --help|-h)
-            help ;;
+            help; exit ;;
         *)
-            echo "Unknown argument $i" ; help ; exit ;;
+            echo "Unknown argument $i" ; help ; exit 1;;
     esac
 done
 
@@ -31,6 +34,7 @@ function help {
     printf "Arguments:\n"
     printf "  --no-pass/-np        Don't install password-store helper\n"
     printf "  --no-settings/-ns    Don't install system settings helper\n"
+    printf "  --no-git/-ng         Don't install git helper\n"
     printf "  --help/-h            Show this help.\n"
 }
 
@@ -50,7 +54,7 @@ cp config/config.json $HOME/.config/launcher/config.json
 cp launcher.sh "$BINPATH/bash-launcher"
 chmod a+x "$BINPATH/bash-launcher"
 
-# Copy pass-helper and system-helper
+# Copy pass-helper, system-helper and 
 if [[ $PASS -eq 1 ]]; then
 	cp config/pass.json $HOME/.config/launcher/pass.json
 	cp helpers/pass.sh "$BINPATH/pass-helper"
@@ -60,6 +64,12 @@ if [[ $SETTINGS -eq 1 ]]; then
 	cp config/settings.json $HOME/.config/launcher/settings.json
 	cp helpers/system.sh "$BINPATH/system-helper"
 	chmod a+x "$BINPATH/system-helper"
+fi
+if [[ $GIT -eq 1 ]]; then
+    cp config/git.json $HOME/.config/launcher/git.json
+    cp config/git-commit.json $HOME/.config/launcher/git-commit.json
+    cp helpers/git.sh "$BINPATH/git-helper"
+    chmod a+x "$BINPATH/git-helper"
 fi
 
 printf "Done! Check README.md for configuration\n"

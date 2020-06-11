@@ -13,27 +13,41 @@
 #include "print.h"
 #include "shared.h"
 
+/* View data */
 int view = ROOT;
 char *months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
+/* Category and transaction helper data */
 int categoryCount = 0;
 int categoryLength = 0;
 int transactionCount = 0;
 int transactionLength = 0;
 
+/* Info data */
 float balance = 0;
 float limit = 0;
 float spending = 0;
 float estimated = 0;
 
+/* Times */
 struct tm viewTime;
 struct tm estimatedTime;
 struct tm currentTime;
 
+/* Arrays */
 Category *categories;
 Transaction *transactions;
 
+/*******************************************************************************
+ * Performs an action. Returns the same view if choice is not one of the 
+ * defined ones.
+ *
+ * @param view Current view
+ * @param choice Action performed in the view
+ *
+ * @return view where to switch
+ ******************************************************************************/
 int action(int view, int choice) {
     if (view != ROOT && !choice) {
         return ROOT;
@@ -94,14 +108,30 @@ int action(int view, int choice) {
     return view;
 }
 
+/*******************************************************************************
+ * Displays the current view menu, and waits for an action to execute.
+ * 
+ * finance uses a view-action structure. What menu to display is determined by
+ * the view variable, and the action determined by the user's action.
+ * If anything else needs to be performed (such as asking for user input), this
+ * is performed by action(), and then the display is cleared in order to show
+ * the new menu.
+ ******************************************************************************/
 void menu() {
     int choice = -1;
     do {
+        /* Print header then categories */
         printHeader("Main menu");
         printCategories();
+        
+        /* Print menu according to the view */
         printMenu(view);
+        
+        /* Wait for a choice*/
         scanf("%d", &choice);
 
+        /* Execute an action determined by the current view and the choice
+         * and change to the returned view */
         view = action(view, choice);
 
         getchar();

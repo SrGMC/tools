@@ -30,6 +30,7 @@ int pushCategory(char *name, float budget) {
     int length = strlen(categories[index].name) + 1;
     categoryLength = length > categoryLength ? length : categoryLength;
 
+    /* Compute current and estimated */
     computeCurrent();
     computeEstimated();
 
@@ -61,6 +62,7 @@ void removeCategory(int id) {
     categoryCount--;
     categories = realloc(categories, categoryCount * sizeof(Category));
 
+    /* Compute current and estimated */
     computeCurrent();
     computeEstimated();
 }
@@ -107,6 +109,7 @@ int pushTransaction(char *date, char *name, char *category, float value) {
         categories[cat].current += transactions[index].value;
     }
 
+    /* Compute current and estimated */
     computeCurrent();
     computeEstimated();
 
@@ -140,6 +143,7 @@ void removeTransaction(int id) {
     transactions =
         realloc(transactions, transactionCount * sizeof(Transaction));
 
+    /* Compute current and estimated */
     computeCurrent();
     computeEstimated();
 }
@@ -161,17 +165,29 @@ int getCategoryByName(char *string) {
     return -1;
 }
 
+/*******************************************************************************
+ * Recomputes values for spending, limit and balance as well as each category 
+ * current spending.
+ ******************************************************************************/
 void computeCurrent() {
+
+    /* Clear spending, limit and balance */
     spending = 0;
     limit = 0;
     balance = 0;
+    
+    /* Reset categories.current and limit */
     for (int i = 0; i < categoryCount; ++i) {
         categories[i].current = 0;
         limit += categories[i].budget;
     }
-
+    
     for (int i = 0; i < transactionCount; ++i) {
+        /* Recompute balance */
         balance += transactions[i].value;
+        
+        /* If transaction matches view date, add to spending and 
+         * the corresponding category's current' */
         if (viewTime.tm_year == transactions[i].date.tm_year &&
             viewTime.tm_mon == transactions[i].date.tm_mon) {
             spending += transactions[i].value < 0 ? transactions[i].value : 0;
@@ -181,6 +197,11 @@ void computeCurrent() {
     }
 }
 
+/*******************************************************************************
+ * Recomputes estimated value. This is done by computing the number of months
+ * between the current day and the estimated view day, and adding the limit and
+ * the income to the balance
+ ******************************************************************************/
 void computeEstimated() {
     estimated = 0;
     int mDiff = monthDiff(estimatedTime.tm_year, currentTime.tm_year,

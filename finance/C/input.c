@@ -56,6 +56,9 @@ void newTransaction(char type) {
     getchar();
 }
 
+/*******************************************************************************
+ * Asks the user what transaction to delete
+ ******************************************************************************/
 void deleteTransaction() {
     int choice = -1;
     printHeader("Delete a transaction");
@@ -102,6 +105,9 @@ void newCategory() {
     getchar();
 }
 
+/*******************************************************************************
+ * Asks the user what category to delete
+ ******************************************************************************/
 void deleteCategory() {
     int choice = -1;
     printHeader("Delete a category");
@@ -121,6 +127,9 @@ void deleteCategory() {
     getchar();
 }
 
+/*******************************************************************************
+ * Asks the user for a year and month where to change the current spending view
+ ******************************************************************************/
 void changeMonth() {
     printHeader("Change display month");
 
@@ -145,6 +154,9 @@ void changeMonth() {
     computeCurrent();
 }
 
+/*******************************************************************************
+ * Asks the user for a year and month where to change the estimated balance
+ ******************************************************************************/
 void changeEstimatedMonth() {
     printHeader("Change estimated month");
 

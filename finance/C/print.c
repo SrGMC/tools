@@ -73,6 +73,8 @@ void printTransactions() {
 
 /*******************************************************************************
  * Print a menu selection screen
+ *
+ * @param op Menu view to print
  ******************************************************************************/
 void printMenu(int op) {
     printf("\n");

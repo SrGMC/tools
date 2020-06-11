@@ -1,6 +1,6 @@
 # compresser.sh
 
-Tool to compress PDFs and files into 7z archives
+Tool to compress PDFs and files into 7z archives.
 
 ## Table of contents
 
@@ -19,7 +19,7 @@ Tool to compress PDFs and files into 7z archives
 Debian/Ubuntu
 
 ```bash
-sudo apt-get install p7zip
+sudo apt-get install p7zip p7zip-full
 ```
 
 macOS

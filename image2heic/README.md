@@ -1,6 +1,6 @@
 # image2heic
 
-Tool to converts images to a HEIC file which vastly reduces file size.
+Tool to convert images to a HEIC file which vastly reduces file size.
  This script resizes images to a 3508xH or Wx3508 size, an optimum size between
  printing and storage.
 

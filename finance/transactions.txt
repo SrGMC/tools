@@ -1,0 +1,2 @@
+2020-01-01,    Sample transaction,    Income,      272.64
+2020-01-02,    Transaction,           Shopping,    -272.64

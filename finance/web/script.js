@@ -17,6 +17,7 @@ function getRequest(url, resolve, reject) {
   xhr.onload = function () {
     if(xhr.status !== 200 || xhr.readyState !== 4) {
         reject(xhr.response);
+        return;
     }
     resolve(xhr.response);
   };
@@ -176,9 +177,9 @@ function loadApp() {
     displayData();
 }
 
-getRequest('/transactions.txt', function(transactions) {
+getRequest('transactions.txt', function(transactions) {
     transactionsTxt = transactions;
-    getRequest('/categories.txt', function(categories) {
+    getRequest('categories.txt', function(categories) {
         categoriesTxt = categories;
         loadApp();
     }, function(data) {

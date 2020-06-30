@@ -109,7 +109,7 @@ function displayCategories() {
         container.innerHTML += '<div class="item">' + 
                                     '<div class="content">' + 
                                         '<span class="title">' + categories[i].name + '</span>' + 
-                                        '<span class="right">' + Math.abs(categories[i].current.toFixed(2)) + ' € / ' + categories[i].limit.toFixed(2) + ' €</span>' + 
+                                        '<span class="right">' + categories[i].current.toFixed(2) + ' € / ' + categories[i].limit.toFixed(2) + ' €</span>' + 
                                         '<div class="bar">' + 
                                             '<div class="fill ' + resolveColor(categories[i].name) + '" style="width: ' + getPercentage(categories[i].current, categories[i].limit) + '%;"></div>' + 
                                         '</div>' + 

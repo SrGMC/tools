@@ -15,6 +15,7 @@ function printHeader() {
 
 ITEMS=""
 NAME=""
+CONFIRM=""
 function requestItems() {
     read -p "$(tput setaf 3)What items? (. for everything): $(tput sgr 0)" ITEMS
     git add $ITEMS
@@ -24,11 +25,19 @@ function requestName() {
     read -p "$(tput setaf 3)Name your commit?: $(tput sgr 0)" NAME
 }
 
+function requestCredConfirm() {
+    read -p "$(tput setaf 3)Have you removed all the credentials from $ITEMS source files?\n(Type "yes" to continue): $(tput sgr 0)" CONFIRM
+    if [[ $CONFIRM != "yes" ]]; then
+        exit
+    fi
+}
+
 # NEW.
 function gnew() {
     printHeader "📦 New"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "📦 New: $NAME"
 }
 
@@ -37,6 +46,7 @@ function gimp() {
     printHeader "✨ Improvement"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "✨ Improve: $NAME"
 }
 
@@ -45,6 +55,7 @@ function gfix() {
     printHeader "🐛 Fix"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "🐛 Fix: $NAME"
 }
 
@@ -53,6 +64,7 @@ function grm() {
     printHeader "🗑 Removal"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "🗑 Remove: $NAME"
 }
 
@@ -61,6 +73,7 @@ function grlz() {
     printHeader "🚀 Release"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "🚀 Release: $NAME"
 }
 
@@ -69,6 +82,7 @@ function gdoc() {
     printHeader "📖 Doc"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "📖 Doc: $NAME"
 }
 
@@ -77,6 +91,7 @@ function gtst() {
     printHeader "🤖 Test"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "🤖 Test: $NAME"
 }
 
@@ -85,6 +100,7 @@ function gbrk() {
     printHeader "‼ Breaking changes"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "‼ Breaking: $NAME"
 }
 
@@ -93,12 +109,14 @@ function gign() {
     printHeader "🙈 .gitignore"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "🙈 .gitignore: $NAME"
 }
 
 # INIT.
 function ginit() {
     printHeader "🎉 Initial commit"
+    requestCredConfirm
     git add .
     git commit -m "🎉 Initial commit"
 }
@@ -108,6 +126,7 @@ function gclean() {
     printHeader "💩 Needs cleaning"
     requestItems
     requestName
+    requestCredConfirm
     git commit -m "💩 Needs cleaning: $NAME"
 }
 

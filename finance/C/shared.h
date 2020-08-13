@@ -36,7 +36,7 @@ typedef struct transaction {
     float value;
 } Transaction;
 
-enum OPERATIONS { ROOT, CATEGORY, TRANSACTION, VIEW };
+enum OPERATIONS { ROOT, CATEGORY, TRANSACTION, VIEW, DISPLAY };
 
 // Counts and lengths
 extern int categoryCount;

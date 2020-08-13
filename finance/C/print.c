@@ -72,6 +72,35 @@ void printTransactions() {
 }
 
 /*******************************************************************************
+ * Print all transactions between a range
+ ******************************************************************************/
+void printTransactionsRange(int sy, int sm, int sd, int ey, int em, int ed) {
+    printHeader("Transaction list");
+    int paddingN = (strlen("Transaction") - transactionLength);
+    int paddingC = (strlen("Category") - categoryLength);
+
+    printf("ID     Date           Transaction%-*s    Category%-*s    Value\n",
+           paddingN, " ", paddingC, " ");
+
+    for (int i = 0; i < transactionCount; ++i) {
+        /* If date is after start and before end, display category */
+        if(timeCompareDay(sy, transactions[i].date.tm_year, sm, transactions[i].date.tm_mon, sd, transactions[i].date.tm_mday) && 
+           timeCompareDay(transactions[i].date.tm_year, ey, transactions[i].date.tm_mon, em, transactions[i].date.tm_mday, ed)) {
+            paddingN = (strlen(transactions[i].name) - transactionLength);
+            paddingC = (strlen(transactions[i].category) - categoryLength);
+
+            printf("%-*d %d-%02d-%02d     %s%-*s    \033[0;3%dm%s\033[0m%-*s    € "
+                "%.2f\n",
+                6, i + 1, 1900 + transactions[i].date.tm_year,
+                transactions[i].date.tm_mon + 1, transactions[i].date.tm_mday,
+                transactions[i].name, paddingN, " ",
+                get_color(transactions[i].category), transactions[i].category,
+                paddingC, " ", transactions[i].value);
+        }
+    }
+}
+
+/*******************************************************************************
  * Print a menu selection screen
  *
  * @param op Menu view to print
@@ -90,6 +119,10 @@ void printMenu(int op) {
     } else if (op == VIEW) {
         printf("1) Change display month\n");
         printf("2) Change estimated month\n");
+        printf("0) \033[0;31mBack\033[0m\n");
+    } else if (op == DISPLAY) {
+        printf("1) Full list\n");
+        printf("2) Current display month\n");
         printf("0) \033[0;31mBack\033[0m\n");
     } else {
         printf("1) View transactions\n");

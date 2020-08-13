@@ -9,4 +9,5 @@ char * gen_string(char *string);
 int get_color(char * string);
 int getLine(char *prmpt, char *buff, size_t sz);
 int timeCompare(int y1, int y2, int m1, int m2);
+int timeCompareDay(int y1, int y2, int m1, int m2, int d1, int d2);
 int monthDiff(int y1, int y2, int m1, int m2);

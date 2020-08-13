@@ -4,14 +4,14 @@
 // Author: Álvaro Galisteo (https://alvaro.ga)
 // Copyright 2020 - GPLv3
 //
-// Compile with: gcc main.c input.c print.c file.c data.c utils.c shared.h -o
-// main
+// Compile with: gcc main.c input.c print.c file.c data.c utils.c shared.h -o main
 
 #include "data.h"
 #include "file.h"
 #include "input.h"
 #include "print.h"
 #include "shared.h"
+#include <time.h>
 
 /* View data */
 int view = ROOT;
@@ -60,18 +60,30 @@ int action(int view, int choice) {
             writeTransactions();
             exit(0);
         case 1:
-            printTransactions();
-
-            /* Wait for any keypress before continuing */
-            printf("\nPress Enter key to continue...\n");
-            getchar();
-            break;
+            return DISPLAY;
         case 2:
             return VIEW;
         case 3:
             return CATEGORY;
         case 4:
             return TRANSACTION;
+        }
+    } else if (view == DISPLAY) {
+        switch (choice) {
+            case 1:
+                printTransactions();
+
+                /* Wait for any keypress before continuing */
+                printf("\nPress Enter key to continue...\n");
+                getchar();
+                return ROOT;
+            case 2:
+                printTransactionsRange(viewTime.tm_year, viewTime.tm_mon, 1, viewTime.tm_year, viewTime.tm_mon, 31);
+
+                /* Wait for any keypress before continuing */
+                printf("\nPress Enter key to continue...\n");
+                getchar();
+                return ROOT;
         }
     } else if (view == VIEW) {
         switch (choice) {

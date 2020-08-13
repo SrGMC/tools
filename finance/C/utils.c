@@ -95,17 +95,38 @@ int getLine(char *prmpt, char *buff, size_t sz) {
     return 0;
 }
 
-/* Returns 0 if time1 is before time2 and 1 if time2 is before time1 */
+/* Returns 0 if time1 is after time2 and 1 if time2 is after time1 */
 int timeCompare(int y1, int y2, int m1, int m2) {
     if (y1 > y2) {
         return 0;
     } else if (y1 < y2) {
         return 1;
     } else {
-        if (m1 < m2) {
+        if (m1 > m2) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+}
+
+/* Returns 0 if time1 is after time2 and 1 if time2 is after time1 */
+int timeCompareDay(int y1, int y2, int m1, int m2, int d1, int d2) {
+    if (y1 > y2) {
+        return 0;
+    } else if (y1 < y2) {
+        return 1;
+    } else {
+        if (m1 > m2) {
+            return 0;
+        } else if (m1 < m2) {
             return 1;
         } else {
-            return 0;
+            if (d1 > d2) {
+                return 0;
+            } else {
+                return 1;
+            }
         }
     }
 }

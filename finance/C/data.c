@@ -203,8 +203,24 @@ void computeCurrent() {
  * the income to the balance
  ******************************************************************************/
 void computeEstimated() {
+    int current = 0;
+    for (int i = 0; i < transactionCount; ++i) {
+        /* If transaction matches today's date, add to spending and 
+         * the corresponding category's current' */
+        if (currentTime.tm_year == transactions[i].date.tm_year &&
+            currentTime.tm_mon == transactions[i].date.tm_mon) {
+            current += transactions[i].value;
+        }
+    }
+
+    // If limit is bigger than current spendings, subtract current spending 
+    // from limit
+    if(limit > current) {
+        current = limit - current;
+    }
+
     estimated = 0;
     int mDiff = monthDiff(estimatedTime.tm_year, currentTime.tm_year,
                           estimatedTime.tm_mon, currentTime.tm_mon);
-    estimated = mDiff * ((-1 * limit) + EST_INCOME) + balance;
+    estimated = (mDiff - 1) * (-1 * limit) + (mDiff * EST_INCOME) + balance - current;
 }

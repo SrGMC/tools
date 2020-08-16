@@ -127,6 +127,12 @@ Once compiled, run the program with `./main`. Navigate the menus using numbers a
 
 ![C version screenshot](screenshot_c.png)
 
+#### Configuration
+
+Currently, the config variables are in the `shared.h` file. Here, you can change the categories and transactions filename, the app's name and the monthly income (EST_INCOME) before compiling.
+
+A config file is planned for implementation.
+
 ### Webapp
 
 Navigate to `<domain.tld>/finance`, replacing `<domain.tld>` with your domain. Everything will be loaded.

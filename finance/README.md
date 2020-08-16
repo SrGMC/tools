@@ -28,10 +28,10 @@ This program has the following features:
 - [X] Current month's expenditure, divided by categories with the possibility of changing the month to be shown
 - [X] Balance forecast to a specific month
 - [X] Webapp
+- [-] Code documentation
 
 While the following ones are in development:
 
-- [ ] Code documentation
 - [ ] Display a bar that graphically shows the percentage of category spending
 - [ ] Configuration files
 
@@ -135,6 +135,6 @@ You can expand the transaction list by clicking `View all`. The view date can be
 
 ![Web app screenshot](screenshot_webapp.png)
 
-## Usage
+## Documentation
 
 - [C version](C/docs)

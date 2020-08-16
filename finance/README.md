@@ -12,6 +12,7 @@ A simple, easy to use, finance manager.
     - [C Version](#c-version)
     - [Webapp](#webapp)
   - [Usage](#usage)
+  - [Documentation](#documentation)
 
 ## About
 
@@ -133,3 +134,7 @@ Navigate to `<domain.tld>/finance`, replacing `<domain.tld>` with your domain. E
 You can expand the transaction list by clicking `View all`. The view date can be changed by clicking on the calendar icon on the upper right side of the app.
 
 ![Web app screenshot](screenshot_webapp.png)
+
+## Usage
+
+- [C version](C/docs)

@@ -123,6 +123,8 @@ void printMenu(int op) {
     } else if (op == DISPLAY) {
         printf("1) Full list\n");
         printf("2) Current display month\n");
+        //printf("3) Custom range\n");
+        //printf("4) By category\n");
         printf("0) \033[0;31mBack\033[0m\n");
     } else {
         printf("1) View transactions\n");

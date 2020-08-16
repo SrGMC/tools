@@ -18,7 +18,7 @@
 #define TRANSACTIONS_FILE "transactions.txt"
 
 #define NAME "Finance"
-#define EST_INCOME 465.69
+#define EST_INCOME 447.69
 
 extern char *months[];
 
@@ -44,6 +44,7 @@ extern int categoryLength;
 extern int transactionCount;
 extern int transactionLength;
 
+// Info data
 extern float balance;
 extern float limit;
 extern float spending;

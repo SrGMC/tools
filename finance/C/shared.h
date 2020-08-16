@@ -24,16 +24,16 @@ extern char *months[];
 
 // Structures
 typedef struct category {
-    char *name;
-    float budget;
-    float current;
+  char *name;
+  float budget;
+  float current;
 } Category;
 
 typedef struct transaction {
-    struct tm date;
-    char *name;
-    char *category;
-    float value;
+  struct tm date;
+  char *name;
+  char *category;
+  float value;
 } Transaction;
 
 enum OPERATIONS { ROOT, CATEGORY, TRANSACTION, VIEW, DISPLAY };

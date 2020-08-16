@@ -14,7 +14,18 @@ if [ ! -d "output" ]; then
   mkdir output
 fi
 
-for file in input/*.{jpeg,jpg,png,heic,gif,bmp}; do
+for file in input/*.{jpeg,jpg,png,heic,gif,bmp,JPEG,JPG,PNG,HEIC,GIF,BMP}; do
+    # Skip non existing
+    if [[ $file == 'input/*.jpeg' ]] || [[ $file == 'input/*.jpg' ]] || [[ $file == 'input/*.png' ]] ||
+       [[ $file == 'input/*.heic' ]] || [[ $file == 'input/*.gif' ]] || [[ $file == 'input/*.bmp' ]]; then
+      continue
+    fi
+
+    if [[ $file == 'input/*.JPEG' ]] || [[ $file == 'input/*.JPG' ]] || [[ $file == 'input/*.PNG' ]] ||
+       [[ $file == 'input/*.HEIC' ]] || [[ $file == 'input/*.GIF' ]] || [[ $file == 'input/*.BMP' ]]; then
+      continue
+    fi
+
     res=$(identify -format "%[fx:w] %[fx:h]" "$file")
     width=$(echo $res | awk '{print $1}')
     height=$(echo $res | awk '{print $2}')

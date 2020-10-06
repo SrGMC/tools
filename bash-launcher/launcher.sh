@@ -43,29 +43,29 @@ function setColor {
 }
 
 function help {
-    printf "$(tput bold)Bash shell launcher$(resetTerminal)\n"
+    printf "%sBash shell launcher\n%s" "$(tput bold)" "$(resetTerminal)"
     printf "Author: Álvaro Galisteo (https://alvaro.ga)\n"
     printf "Command line utility to create menus and/or command launchers with arrow key selection\n\n"
     printf "Arguments:\n"
     printf "  --config=PATH        Path for the config file.\n"
-    printf "                       Default: $HOME/.config/launcher/config.json\n"
+    printf "                       Default: %s/.config/launcher/config.json\n" "$HOME"
     printf "  --help/-h            Show this help.\n"
     exit
 }
 
 function run {
     clear
-    TYPE=$(echo $CONFIG | jq ".items[$1].type" -r)
-    RUN=$(echo $CONFIG | jq ".items[$1].run" -r)
-    WAIT=$(echo $CONFIG | jq ".items[$1].wait" -r)
+    TYPE=$(echo "$CONFIG" | jq ".items[$1].type" -r)
+    RUN=$(echo "$CONFIG" | jq ".items[$1].run" -r)
+    WAIT=$(echo "$CONFIG" | jq ".items[$1].wait" -r)
     if [[ $TYPE == "command" ]]; then
-        eval $RUN
+        eval "$RUN"
         if [[ $WAIT == "true" ]]; then
             echo ""
-            read -p "$(setColor fg yellow)Press any key to continue...$(resetTerminal)"
+            read -r -p "$(setColor fg yellow)Press any key to continue...$(resetTerminal)"
         fi
     elif [[ $TYPE == "submenu" ]]; then
-        eval $0 --config=$RUN
+        eval "$0" --config="$RUN"
     elif [[ $TYPE == "exit" ]]; then
         clear
         exit
@@ -85,7 +85,7 @@ function printItem {
     if [[ $1 == "none" ]]; then
         echo "$STRING  $3"
     else
-        echo "$(setColor bg $1)$(setColor fg black)$STRING$(resetTerminal)  $3"
+        echo "$(setColor bg "$1")$(setColor fg black)$STRING$(resetTerminal)  $3"
     fi
 }
 
@@ -97,7 +97,7 @@ function printMenu {
 
     for i in $(seq 0 $((ITEM_COUNT - 1))); do
         if [[ $i -eq $SELECTION ]]; then
-            printItem ${COLORS[$i]} "${ITEMS[$i]}" "${DESCRIPTION[$i]}"
+            printItem "${COLORS[$i]}" "${ITEMS[$i]}" "${DESCRIPTION[$i]}"
         else
             printItem none "${ITEMS[$i]}" "${DESCRIPTION[$i]}"
         fi
@@ -107,14 +107,17 @@ function printMenu {
 function fillItems {
     SAVEIFS=$IFS
     IFS=$(echo -en "\n\b")
-    for i in $(echo $CONFIG | jq ".items[].name" -r); do
-        ITEMS+=($i)
+    for i in $(echo "$CONFIG" | jq ".items[].name" -r); do
+        ITEMS+=("$i")
     done
-    for i in $(echo $CONFIG | jq ".items[].description" -r); do
-        DESCRIPTION+=($i)
+    for i in $(echo "$CONFIG" | jq ".items[].description" -r); do
+        DESCRIPTION+=("$i")
     done
-    for i in $(echo $CONFIG | jq ".items[].color" -r); do
-        COLORS+=($i)
+    for i in $(echo "$CONFIG" | jq ".items[].color" -r); do
+        COLORS+=("$i")
+    done
+        for i in $(echo "$CONFIG" | jq ".items[].type" -r); do
+        TYPE+=("$i")
     done
     IFS=$SAVEIFS
 }
@@ -135,11 +138,11 @@ done
 # Global variables
 #
 # In-memory config
-CONFIG=$(cat $CONFIGPATH)
+CONFIG=$(cat "$CONFIGPATH")
 
 # Title and subtitle
-TITLE=$(echo $CONFIG | jq ".title" -r)
-SUBTITLE=$(echo $CONFIG | jq ".subtitle" -r)
+TITLE=$(echo "$CONFIG" | jq ".title" -r)
+SUBTITLE=$(echo "$CONFIG" | jq ".subtitle" -r)
 
 # Characters
 esc=$'\e'
@@ -149,12 +152,13 @@ down=$'\e[B'
 # Selection and size
 SELECTION=0
 MAX_STRING_SIZE=0
-ITEM_COUNT=$(echo $CONFIG | jq ".items | length")
+ITEM_COUNT=$(echo "$CONFIG" | jq ".items | length")
 
 # Items
 ITEMS=()
 COLORS=()
 DESCRIPTION=()
+TYPE=()
 
 #
 # Main
@@ -173,11 +177,11 @@ done
 
 printMenu
 
-while [[ 1 ]]; do
-    while IFS="" read -n1 -s char ; do
+while true; do
+    while IFS="" read -r -n1 -s char ; do
         if [[ "$char" == "$esc" ]]; then
             # Get the rest of the escape sequence (3 characters total)
-            while read -n2 -s rest ; do
+            while read -r -n2 -s rest ; do
                 char+="$rest"
                 break
             done
@@ -187,13 +191,14 @@ while [[ 1 ]]; do
             tput cup $(( SELECTION + 3 )) 0
             printItem none "${ITEMS[$SELECTION]}" "${DESCRIPTION[$SELECTION]}"
 
+            # Skip separators
             SELECTION=$(( SELECTION - 1 ))
-            if [[ ${ITEMS[$SELECTION]} == " " ]] ; then
+            while [[ ${TYPE[$SELECTION]} == "separator" ]] ; do
                 SELECTION=$(( SELECTION - 1 ))
-            fi
+            done
 
             tput cup $(( SELECTION + 3 )) 0
-            printItem ${COLORS[$SELECTION]} "${ITEMS[$SELECTION]}" "${DESCRIPTION[$SELECTION]}"
+            printItem "${COLORS[$SELECTION]}" "${ITEMS[$SELECTION]}" "${DESCRIPTION[$SELECTION]}"
             tput cup $(( SELECTION + 3 )) 0
 
             break
@@ -201,13 +206,14 @@ while [[ 1 ]]; do
             tput cup $(( SELECTION + 3 )) 0
             printItem none "${ITEMS[$SELECTION]}" "${DESCRIPTION[$SELECTION]}"
 
+            # Skip separators
             SELECTION=$(( SELECTION + 1 ))
-            if [[ ${ITEMS[$SELECTION]} == " " ]] ; then
+            while [[ ${TYPE[$SELECTION]} == "separator" ]] ; do
                 SELECTION=$(( SELECTION + 1 ))
-            fi
+            done
 
             tput cup $(( SELECTION + 3 )) 0
-            printItem ${COLORS[$SELECTION]} "${ITEMS[$SELECTION]}" "${DESCRIPTION[$SELECTION]}"
+            printItem "${COLORS[$SELECTION]}" "${ITEMS[$SELECTION]}" "${DESCRIPTION[$SELECTION]}"
             tput cup $(( SELECTION + 3 )) 0
             break
         elif [[ -z "$char" ]]; then # user pressed ENTER

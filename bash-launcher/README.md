@@ -7,6 +7,7 @@ Command line utility to create command/app launchers.
 ## Table of contents
 
 - [bash-launcher](#bash-launcher)
+  - [Table of contents](#table-of-contents)
   - [Installation](#installation)
     - [jq](#jq)
     - [`install.sh`](#installsh)
@@ -87,19 +88,24 @@ Items is an array of objects that represents each entry in the launcher. It cont
 
 - `name`: Name of the entry
 - `description`: Description of the entry
-- `type`': Type of execution. Accepts the values `command`, `submenu` or `exit`
+- `type`': Type of execution. Accepts the values `command`, `submenu`, `exit` or `separator`
 - `run`: Command or file to be executed. If `type` is `command` the value will be executed as a command, if it is `submenu`, the launcher will be executed with the value of run as a configuration file and if it is `exit` the launcher execution is finished.
 - `color` (Optional): Background color when selecting the
 - `wait` (Optional): Tells the launcher if it should display a "Press any button to continue..." message. Useful in commands that only show information.
 
-Separators can also be displayed. Simply, add an object in the following way and the launcher will take it as a separator:
+Separators can also be displayed. Simply, add an object in the following way and the launcher will take it as a separator.:
 
 ```json
 {
-    "name": "",
-    "description": " "
+    "name": " ",
+    "description": " ",
+    "type": "separator"
 }
 ```
+
+**Please note that spaces in `name` and `description` are required if you want to make an empty separator**
+
+You can also fill `name` and/or `description` to create a text separator.
 
 Feel free to experiment and modify. An example can be seen in `config/config.json`.
 

@@ -34,7 +34,7 @@
       "wait": "true"
     },
     {
-      "name": "🗑 Removal",
+      "name": "🗑  Removal",
       "description": "",
       "type": "command",
       "run": "git-helper rm",
@@ -66,7 +66,7 @@
       "wait": "true"
     },
     {
-      "name": "‼ Breaking changes",
+      "name": "💥 Breaking changes",
       "description": "",
       "type": "command",
       "run": "git-helper brk",

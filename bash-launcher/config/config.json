@@ -52,7 +52,8 @@
     },
     {
       "name": " ",
-      "description": " "
+      "description": " ",
+      "type": "separator"
     },
     {
       "name": "Device settings",
@@ -63,8 +64,17 @@
       "wait": "false"
     },
     {
+      "name": "System info",
+      "description": " ",
+      "type": "command",
+      "run": "system-info-helper",
+      "color": "white",
+      "wait": "true"
+    },
+    {
       "name": " ",
-      "description": " "
+      "description": " ",
+      "type": "separator"
     },
     {
       "name": "Exit",

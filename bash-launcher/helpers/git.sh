@@ -17,16 +17,16 @@ ITEMS=""
 NAME=""
 CONFIRM=""
 function requestItems() {
-    read -p "$(tput setaf 3)What items? (. for everything): $(tput sgr 0)" ITEMS
+    read -r -p "$(tput setaf 3)What items? (. for everything): $(tput sgr 0)" ITEMS
     git add $ITEMS
 }
 
 function requestName() {
-    read -p "$(tput setaf 3)Name your commit?: $(tput sgr 0)" NAME
+    read -r -p "$(tput setaf 3)Name your commit?: $(tput sgr 0)" NAME
 }
 
 function requestCredConfirm() {
-    read -p "$(tput setaf 3)Have you removed all the credentials from $ITEMS source files?\n(Type "yes" to continue): $(tput sgr 0)" CONFIRM
+    read -r -p "$(tput setaf 3)Have you removed all the credentials from $ITEMS source files?\n(Type \"yes\" to continue): $(tput sgr 0)" CONFIRM
     if [[ $CONFIRM != "yes" ]]; then
         exit
     fi

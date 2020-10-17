@@ -1,0 +1,104 @@
+{
+    "title": "Shell launcher",
+    "subtitle": "System tools",
+    "items": [
+        {
+            "name": "Back",
+            "description": " ",
+            "type": "exit",
+            "color": "red",
+            "wait": "false"
+        },
+        {
+            "name": " ",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "htop",
+            "description": "Process manager",
+            "type": "command",
+            "run": "htop",
+            "color": "white",
+            "wait": "false"
+        },
+        {
+            "name": " ",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "apt",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "Update",
+            "description": "Update apt repositories",
+            "type": "command",
+            "run": "echo -e \"$(tput bold)System tools$(tput sgr 0)\" && echo -e \"Updating apt repositories\n\" && sudo apt update",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "List upgradeable",
+            "description": "Update apt repositories",
+            "type": "command",
+            "run": "echo -e \"$(tput bold)System tools$(tput sgr 0)\" && echo -e \"Upgradeable packages\n\" && sudo apt list --upgradeable",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "Upgrade",
+            "description": "Upgrade system",
+            "type": "command",
+            "run": "echo -e \"$(tput bold)System tools$(tput sgr 0)\" && echo -e \"Upgrading system\n\" && sudo apt update && sudo apt upgrade -y",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": " ",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "Network",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "lsof",
+            "description": "View current open ports",
+            "type": "command",
+            "run": "sudo lsof -i -P",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "ping test",
+            "description": "Test current network",
+            "type": "command",
+            "run": "echo -e \"$(tput bold)System tools$(tput sgr 0)\" && echo -e \"Testing network connection\n\" && ping 1.0.0.1 -c 3",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": " ",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "System",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "info",
+            "description": "",
+            "type": "command",
+            "run": "echo -e \"$(tput bold)System tools$(tput sgr 0)\" && echo -e \"Info\n\" && system-info-helper",
+            "color": "white",
+            "wait": "true"
+        }
+    ]
+}

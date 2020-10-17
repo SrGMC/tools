@@ -1,0 +1,74 @@
+{
+    "title": "Cargo tools",
+    "subtitle": "Rust and Cargo commands and tools",
+    "items": [
+        {
+            "name": "Back",
+            "description": " ",
+            "type": "exit",
+            "color": "red",
+            "wait": "false"
+        },
+        {
+            "name": " ",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "run",
+            "description": "Compile and run the current package",
+            "type": "command",
+            "run": "cargo run",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "build",
+            "description": "Compile current package and its dependencies",
+            "type": "command",
+            "run": "cargo build",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "check",
+            "description": "Analyze current package",
+            "type": "command",
+            "run": "cargo check",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "build --release",
+            "description": "Compile and optimize current package and its dependencies as release",
+            "type": "command",
+            "run": "cargo-helper build-release",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "run --release",
+            "description": "Compile, optimize and run the current package as release",
+            "type": "command",
+            "run": "cargo-helper run-release",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "clean",
+            "description": "Remove target directory",
+            "type": "command",
+            "run": "cargo clean",
+            "color": "yellow",
+            "wait": "true"
+        },
+        {
+            "name": "new",
+            "description": "Create a new cargo package",
+            "type": "command",
+            "run": "cargo-helper new",
+            "color": "green",
+            "wait": "true"
+        }
+    ]
+}

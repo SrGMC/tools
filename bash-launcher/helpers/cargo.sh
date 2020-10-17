@@ -37,6 +37,7 @@ function buildAndStrip() {
 # build-release
 function buildRelease() {
     printHeader "cargo build --release"
+    buildAndStrip
 }
 
 # run-release

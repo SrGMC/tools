@@ -9,7 +9,7 @@
 PASS=1
 SETTINGS=1
 GIT=1
-INFO=1
+CARGO=1
 
 # Parse CLI arguments
 for i in "$@"; do
@@ -22,6 +22,8 @@ for i in "$@"; do
             GIT=0 ;;
         -ni|--no-info)
             INFO=0 ;;
+        -nc|--no-cargo)
+            CARGO=0 ;;
         --help|-h)
             help; exit ;;
         *)
@@ -39,6 +41,7 @@ function help {
     printf "  --no-settings/-ns    Don't install system settings helper\n"
     printf "  --no-git/-ng         Don't install git helper\n"
     printf "  --no-info/-ni        Don't install system info helper\n"
+    printf "  --no-cargo/-nc        Don't install cargo and Rust helper\n"
     printf "  --help/-h            Show this help.\n"
 }
 
@@ -77,7 +80,13 @@ if [[ $GIT -eq 1 ]]; then
 fi
 if [[ $INFO -eq 1 ]]; then
     cp helpers/system-info.sh "$BINPATH/system-info-helper"
+    cp config/system.json "$HOME"/.config/launcher/system.json
     chmod a+x "$BINPATH/system-info-helper"
+fi
+if [[ $CARGO -eq 1 ]]; then
+	cp config/cargo.json "$HOME"/.config/launcher/cargo.json
+	cp helpers/cargo.sh "$BINPATH/cargo-helper"
+	chmod a+x "$BINPATH/cargo-helper"
 fi
 
 printf "Done! Check README.md for configuration\n"

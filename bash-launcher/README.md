@@ -86,12 +86,20 @@ The title will be shown in bold when the program is started, next to the subtitl
 
 Items is an array of objects that represents each entry in the launcher. It contains the following properties:
 
-- `name`: Name of the entry
-- `description`: Description of the entry
-- `type`': Type of execution. Accepts the values `command`, `submenu`, `exit` or `separator`
-- `run`: Command or file to be executed. If `type` is `command` the value will be executed as a command, if it is `submenu`, the launcher will be executed with the value of run as a configuration file and if it is `exit` the launcher execution is finished.
-- `color` (Optional): Background color when selecting the
-- `wait` (Optional): Tells the launcher if it should display a "Press any button to continue..." message. Useful in commands that only show information.
+-   `name`: Name of the entry
+-   `description`: Description of the entry
+-   `type`': Type of execution. Accepts the values `command`, `submenu`, `exit` or `separator`
+-   `run`: Command or file to be executed. If `type` is `command` the value will be executed as a command, if it is `submenu`, the launcher will be executed with the value of run as a configuration file and if it is `exit` the launcher execution is finished.
+-   `color` (Optional): Background color for the entry. Available colors:
+    -   `black`
+    -   `red`
+    -   `green`
+    -   `yellow`
+    -   `blue`
+    -   `magenta`
+    -   `cyan`
+    -   `white`
+-   `wait` (Optional): Tells the launcher if it should display a "Press any button to continue..." message. Useful in commands that only show information.
 
 Separators can also be displayed. Simply, add an object in the following way and the launcher will take it as a separator.:
 
@@ -111,9 +119,12 @@ Feel free to experiment and modify. An example can be seen in `config/config.jso
 
 ### Helpers
 
-Two helpers are also provided:
+Several helpers are also provided:
 
-- `pass-helper`: Script that allows managing password-store (OTP, List, Show, Insert) interactively from the terminal.
-- `system-helper`: Allows configuring some settings such as increasing/decreasing brightness and shutting down/rebooting the system
+-   `cargo-helper`: Allows interactive usage of some `cargo` and Rust tools.
+-   `git-helper`: Allows interactive usage of some `git` commands.
+-   `pass-helper`: Script that allows managing password-store (OTP, List, Show, Insert) interactively from the terminal.
+-   `system-info-helper`: Displays information about the current system.
+-   `system-helper`: Allows configuring some settings such as increasing/decreasing brightness and shutting down/rebooting the system.
 
 Feel free to modify them to your needs, or add more.

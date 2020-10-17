@@ -1,101 +1,101 @@
 {
-  "title": "Git tools",
-  "subtitle": "Commit actions",
-  "items": [
-    {
-      "name": "Back",
-      "description": "",
-      "type": "exit",
-      "color": "red",
-      "wait": "true"
-    },
-    {
-      "name": "📦 New",
-      "description": "",
-      "type": "command",
-      "run": "git-helper new",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "✨ Improvement",
-      "description": "",
-      "type": "command",
-      "run": "git-helper imp",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "🐛 Fix",
-      "description": "",
-      "type": "command",
-      "run": "git-helper fix",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "🗑  Removal",
-      "description": "",
-      "type": "command",
-      "run": "git-helper rm",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "🚀 Release",
-      "description": "",
-      "type": "command",
-      "run": "git-helper rel",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "📖 Doc",
-      "description": "",
-      "type": "command",
-      "run": "git-helper doc",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "🤖 Test",
-      "description": "",
-      "type": "command",
-      "run": "git-helper test",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "💥 Breaking changes",
-      "description": "",
-      "type": "command",
-      "run": "git-helper brk",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "🙈 .gitignore",
-      "description": "",
-      "type": "command",
-      "run": "git-helper ign",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "💩 Needs cleaning",
-      "description": "",
-      "type": "command",
-      "run": "git-helper clean",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "🎉 Initial commit",
-      "description": "",
-      "type": "command",
-      "run": "git-helper init",
-      "color": "white",
-      "wait": "true"
-    }
-  ]
+    "title": "Git tools",
+    "subtitle": "Commit actions",
+    "items": [
+        {
+            "name": "Back",
+            "description": "",
+            "type": "exit",
+            "color": "red",
+            "wait": "true"
+        },
+        {
+            "name": "📦 New",
+            "description": "",
+            "type": "command",
+            "run": "git-helper new",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "✨ Improvement",
+            "description": "",
+            "type": "command",
+            "run": "git-helper imp",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "🐛 Fix",
+            "description": "",
+            "type": "command",
+            "run": "git-helper fix",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "🗑  Removal",
+            "description": "",
+            "type": "command",
+            "run": "git-helper rm",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "🚀 Release",
+            "description": "",
+            "type": "command",
+            "run": "git-helper rel",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "📖 Doc",
+            "description": "",
+            "type": "command",
+            "run": "git-helper doc",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "🤖 Test",
+            "description": "",
+            "type": "command",
+            "run": "git-helper test",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "💥 Breaking changes",
+            "description": "",
+            "type": "command",
+            "run": "git-helper brk",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "🙈 .gitignore",
+            "description": "",
+            "type": "command",
+            "run": "git-helper ign",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "💩 Needs cleaning",
+            "description": "",
+            "type": "command",
+            "run": "git-helper clean",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "🎉 Initial commit",
+            "description": "",
+            "type": "command",
+            "run": "git-helper init",
+            "color": "white",
+            "wait": "true"
+        }
+    ]
 }

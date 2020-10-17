@@ -1,61 +1,66 @@
 {
-  "title": "Git tools",
-  "subtitle": "Repository actions",
-  "items": [
-    {
-      "name": "Back",
-      "description": " ",
-      "type": "exit",
-      "color": "red",
-      "wait": "false"
-    },
-    {
-      "name": "Pull",
-      "description": "Pull repository",
-      "type": "command",
-      "run": "git pull && echo 'Done'",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "Push",
-      "description": "Push repository",
-      "type": "command",
-      "run": "git push && echo 'Done'",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "Commit",
-      "description": "Add new commit",
-      "type": "submenu",
-      "run": "$HOME/.config/launcher/git-commit.json",
-      "color": "white",
-      "wait": "false"
-    },
-    {
-      "name": "Log",
-      "description": "View commit log",
-      "type": "command",
-      "run": "git log",
-      "color": "white",
-      "wait": "false"
-    },
-    {
-      "name": "Force push",
-      "description": "Force push repository",
-      "type": "command",
-      "run": "git push --force && echo 'Done'",
-      "color": "white",
-      "wait": "true"
-    },
-    {
-      "name": "Init repository",
-      "description": "Create a new repository",
-      "type": "command",
-      "run": "git init && touch README.md && touch .gitignore && git-helper init",
-      "color": "white",
-      "wait": "true"
-    }
-  ]
+    "title": "Git tools",
+    "subtitle": "Repository actions",
+    "items": [
+        {
+            "name": "Back",
+            "description": " ",
+            "type": "exit",
+            "color": "red",
+            "wait": "false"
+        },
+        {
+            "name": " ",
+            "description": " ",
+            "type": "separator"
+        },
+        {
+            "name": "Pull",
+            "description": "Pull repository",
+            "type": "command",
+            "run": "git pull && echo 'Done'",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "Push",
+            "description": "Push repository",
+            "type": "command",
+            "run": "git push && echo 'Done'",
+            "color": "white",
+            "wait": "true"
+        },
+        {
+            "name": "Commit",
+            "description": "Add new commit",
+            "type": "submenu",
+            "run": "$HOME/.config/launcher/git-commit.json",
+            "color": "white",
+            "wait": "false"
+        },
+        {
+            "name": "Log",
+            "description": "View commit log",
+            "type": "command",
+            "run": "git log",
+            "color": "white",
+            "wait": "false"
+        },
+        {
+            "name": "Force push",
+            "description": "Force push repository",
+            "type": "command",
+            "run": "git push --force && echo 'Done'",
+            "color": "yellow",
+            "wait": "true"
+        },
+        {
+            "name": "Init repository",
+            "description": "Create a new repository",
+            "type": "command",
+            "run": "git init && touch README.md && touch .gitignore && git-helper init",
+            "color": "green",
+            "wait": "true"
+        }
+    ]
 }

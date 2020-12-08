@@ -1,0 +1,19 @@
+#!/bin/bash
+mkdir node-python
+cp Dockerfiles/node-python.Dockerfile node-python/Dockerfile
+cd node-python
+sudo docker build . -t srgmc/python-nodejs:n12-p3.9
+
+cd ..
+
+git clone https://github.com/agstrike/docker
+mv docker silverstrike
+cp Dockerfiles/silverstrike.Dockerfile silverstrike/Dockerfile
+cd silverstrike
+sudo docker build . -t srgmc/silverstrike:armv7l
+
+cd ..
+
+git clone https://github.com/shlinkio/shlink
+cd shlink
+sudo docker build . -t srgmc/shlink:armv7l

@@ -1,6 +1,6 @@
 # cargo-compile
 
-A script to compile and cross-compile Rust projects
+A script to compile and cross-compile Rust projects. Linux builds are compiled with musl
 
 ## Table of contents
 
@@ -12,11 +12,11 @@ A script to compile and cross-compile Rust projects
 
 ## Installation
 
-GCC cross compiler tools are required:
+GCC cross compiler tools and MUSL are required:
 
 ```bash
 # Dependencies (Ubuntu / Debian)
-sudo apt-get install gcc gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gcc-mingw-w64 gcc-mingw-w64-x86-64
+sudo apt-get install gcc gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gcc-mingw-w64 gcc-mingw-w64-x86-64 musl-tools
 ```
 
 ## Run

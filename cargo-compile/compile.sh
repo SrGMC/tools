@@ -24,9 +24,9 @@ fi
 mkdir bin > /dev/null 2>&1
 
 echo "$(tput bold)Compiling for Linux x64$(tput sgr 0)"
-rustup target add x86_64-unknown-linux-gnu
-cargo build --release --target=x86_64-unknown-linux-gnu
-cp "target/x86_64-unknown-linux-gnu/release/$PROJECT" "bin/$PROJECT-linux-x64"
+rustup target add x86_64-unknown-linux-musl
+cargo build --release --target=x86_64-unknown-linux-musl
+cp "target/x86_64-unknown-linux-musl/release/$PROJECT" "bin/$PROJECT-linux-x64"
 
 echo ""
 echo "$(tput bold)Compiling for Linux armhf$(tput sgr 0)"

@@ -17,3 +17,9 @@ cd ..
 git clone https://github.com/shlinkio/shlink
 cd shlink
 sudo docker build . -t srgmc/shlink:armv7l
+
+cd ..
+
+git clone https://github.com/milesmcc/shynet
+cd shynet
+sudo docker build . -t srgmc/shynet:armv7l

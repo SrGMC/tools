@@ -22,6 +22,7 @@ Collection of tools that I have created and I usually use.
 ## Sysadmin
 
 - [Docker](docker/): Script that builds several images, in order to have armv7l support for them
+- [docker-composer](docker-composer): Node.js program to sort and organize `docker-compose` files.
 
 ## Web
 

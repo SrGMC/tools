@@ -1,0 +1,92 @@
+version: "3"
+
+networks:
+    default:
+        driver: bridge
+    traefik:
+        internal: true
+
+services:
+    # Traefik / Watchtower / Dockerproxy containers
+    watchtower:
+        restart: always
+        network_mode: none
+        labels:
+            - "com.centurylinklabs.watchtower.enable=true"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        command: --label-enable --cleanup --interval 300
+        image: containrrr/watchtower
+
+    dockerproxy:
+        image: tecnativa/docker-socket-proxy
+        depends_on:
+            - watchtower
+        networks:
+            - traefik
+        environment:
+            CONTAINERS: 1
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        labels:
+            - "com.centurylinklabs.watchtower.enable=true"
+        ports:
+            - 2375
+
+    traefik:
+        ports:
+            - 80:80
+            - 443:443
+            - 8080:8080
+        image: traefik:latest
+        depends_on:
+            - dockerproxy
+            - watchtower
+        env_file: ./conf/traefik/.traefik.env
+        volumes:
+            - ./conf/traefik/:/traefik
+        labels:
+            - "com.centurylinklabs.watchtower.enable=true"
+
+        restart: always
+        networks:
+            - default
+            - traefik
+
+    mariadb:
+        ports:
+            - 3306:3306
+        networks:
+            - default
+        env_file: ./conf/mariadb/.mariadb.env
+        volumes:
+            - ./volumes/mariadb:/var/lib/mysql
+        labels:
+            - "com.centurylinklabs.watchtower.enable=true"
+
+        restart: always
+        image: yobasystems/alpine-mariadb:arm32v7
+        depends_on:
+            - watchtower
+    
+    # Gogs container
+    gogs:
+        image: gogs/gogs
+        depends_on:
+            - traefik
+            - watchtower
+            - mariadb
+        ports:
+            - "2221:2221"
+        labels:
+              # Enable Traefik on container
+            - "traefik.enable=true"
+            - "traefik.http.services.git.loadbalancer.server.port=80"
+            - "traefik.http.routers.git.rule=Host(`my.domain.com`)"
+            - "traefik.http.routers.git.entrypoints=web-secure"
+            - "traefik.http.routers.git.tls=true"
+            - "traefik.http.routers.git.tls.certresolver=default"
+            - "com.centurylinklabs.watchtower.enable=true"
+        volumes:
+            - ./volumes/gogs/data:/data
+        restart: always

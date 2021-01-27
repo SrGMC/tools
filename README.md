@@ -18,6 +18,7 @@ Collection of tools that I have created and I usually use.
 
 - [bash-launcher](bash-launcher/): Command line utility to create command/app launchers.
 - [finance](finance/): A simple, easy to use, finance manager.
+- [Renamer](renamer/): Simple CLI script to bulk rename files.
 
 ## Sysadmin
 

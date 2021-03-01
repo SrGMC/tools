@@ -84,14 +84,20 @@ fn main() {
                 .spawn()
                 .expect(format!("Failed to create tiles/{}/{}", zoom, x).as_str());
             for y in start_y..=end_y {
-                println!("{}/{}/{}/{}.png", url, zoom, x, y);
-                Command::new("wget")
+                //println!("{}/{}/{}/{}.png", url, zoom, x, y);
+                let status = Command::new("wget")
                     .arg(format!("{}/{}/{}/{}.png", url, zoom, x, y))
                     .arg("-q")
                     .arg("-O")
                     .arg(format!("tiles/{}/{}/{}.png", zoom, x, y))
-                    .spawn()
-                    .expect(format!("Failed to download tiles/{}/{}/{}.png", zoom, x, y).as_str());
+                    .status()
+                    .unwrap();
+
+                if !status.success() {
+                    println!("Failed to download tiles/{}/{}/{}.png", zoom, x, y);
+                }
+                //  .spawn()
+                //  .expect(format!("Failed to download tiles/{}/{}/{}.png", zoom, x, y).as_str());
                 thread::sleep(time::Duration::from_millis(50));
             }
         }

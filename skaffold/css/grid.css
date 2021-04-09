@@ -1,4 +1,11 @@
-/* Dead Simple Grid (c) 2015 Vladimir Agafonkin */
+/*
+# skafold
+# Template to start creating lightweight web pages quickly and easily.
+#
+# Author: Álvaro Galisteo (https://alvaro.ga)
+# Copyright 2021 - GPLv3
+*/
+/* Based on Dead Simple Grid by Vladimir Agafonkin */
 
 .row .row {
     margin: 0 -1.5em;

@@ -1,3 +1,11 @@
+// 
+// skafold
+// Template to start creating lightweight web pages quickly and easily.
+// 
+// Author: Álvaro Galisteo (https://alvaro.ga)
+// Copyright 2021 - GPLv3
+
+
 // Language
 var currentLanguage = localStorage.getItem('language');
 currentLanguage = currentLanguage == null ? getNavigatorLanguage() : currentLanguage;

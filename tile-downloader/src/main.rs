@@ -1,3 +1,15 @@
+// 
+// tile-downloader
+// Download tiles as PNG files from any server that uses the `{x}/{y}/{z}` system.
+// 
+// **Disclaimer**: This is only used with a local instance of [OpenMapTiles' MapTiler Server](https://openmaptiles.org/docs/), 
+// as it is incompatible with ARMv7 devices. I'm not resposible for anything that happens to you if you try to download 
+// tiles from Google Maps or similar services.
+// 
+// Author: Álvaro Galisteo (https://alvaro.ga)
+// Copyright 2021 - GPLv3
+
+
 use std::f64::consts::PI;
 use std::process::Command;
 use std::thread;

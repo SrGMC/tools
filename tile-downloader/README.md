@@ -11,6 +11,7 @@ Download tiles as PNG files from any server that uses the `{x}/{y}/{z}` system.
     - [Requirements](#requirements)
     - [Compilation](#compilation)
   - [Usage](#usage)
+    - [Optimizing tiles](#optimizing-tiles)
     - [Example](#example)
 
 ## Installation
@@ -20,6 +21,14 @@ Download tiles as PNG files from any server that uses the `{x}/{y}/{z}` system.
 tile-downloader uses Rust and Cargo. Download the latest version from the [official website](https://www.rust-lang.org/).
 
 Also requires `wget`, but this should be installed by default on any distro.
+
+If you want to optimize images with `compress.sh`, `pngquant` is also required:
+
+```bash
+sudo apt install pngquant
+# or
+sudo dnf install pngquant
+```
 
 ### Compilation
 
@@ -54,6 +63,14 @@ OPTIONS:
         --max-zoom <max-zoom>       [default: 20]
         --min-zoom <min-zoom>       [default: 10]
         --url <url>                URL of the tile server. Must accept z/x/y.png
+```
+
+### Optimizing tiles
+
+`compress.sh` is provided to optimize images using `pngquant`, in order to reduce file size without compromising quality.
+
+```
+./compresser.sh
 ```
 
 ### Example

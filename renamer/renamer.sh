@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# renamer
+# Simple CLI script to bulk rename files.
+#
+# Author: Álvaro Galisteo (https://alvaro.ga)
+# Copyright 2020 - GPLv3
 
 set -e
 
@@ -10,7 +16,7 @@ blue="\e[0;94m"
 purple="\e[0;35m"
 
 function help() {
-    echo -e "${bold}Renamer${reset}"
+    echo -e "${bold}renamer${reset}"
     echo -e "A bash script to bulk rename files in a folder. Extensions are lower cased and kept.\n"
     echo -e "Files are renamed with a number, starting with ${blue}Prefix_X.ext${reset}, where ${blue}Prefix${reset}"
     echo -e "is configurable and ${blue}X${reset} is a number starting by ${blue}0${reset}"

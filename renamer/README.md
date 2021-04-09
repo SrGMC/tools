@@ -6,10 +6,7 @@ Files are renamed with a number, starting with `Prefix_X.ext`, where `Prefix` is
 
 ## Table of contents
 
-- [compresser.sh](#compressersh)
-  - [Installation](#installation)
-    - [7zip](#7zip)
-    - [Ghostscript](#ghostscript)
+- [renamer](#renamer)
   - [Usage](#usage)
 
 ## Usage

@@ -1,3 +1,10 @@
+/*
+# skafold
+# Template to start creating lightweight web pages quickly and easily.
+#
+# Author: Álvaro Galisteo (https://alvaro.ga)
+# Copyright 2021 - GPLv3
+*/
 .animate__animated.delay-50 {
     animation-delay: 50ms;
 }

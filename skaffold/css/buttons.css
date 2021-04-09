@@ -1,0 +1,157 @@
+/*
+ * Buttons
+ */
+.btn {
+    display: inline-block;
+
+    padding: 0.5rem 2rem;
+
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius);
+
+    background-color: #fff;
+    color: #000;
+
+    -moz-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 0 rgba(0, 0, 0, 0.1);
+
+    margin: 5px;
+
+    transition: all 0.1s ease-in-out;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+.btn i.fas,
+.btn i.fab {
+    margin-right: 0;
+}
+
+.btn.small {
+    margin: 2px 5px;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #e9ecef;
+}
+
+.btn.white {
+    color: #000;
+    background-color: #fff;
+}
+
+.btn.white:hover {
+    background-color: #e9ecef;
+}
+
+.btn.black {
+    color: #fff;
+    background-color: #000;
+}
+
+.btn.black:hover {
+    background-color: #212529;
+}
+
+.btn.red {
+    color: #fff;
+    background-color: #c92a2a;
+}
+
+.btn.red:hover {
+    background-color: #f03e3e;
+}
+
+.btn.pink {
+    color: #fff;
+    background-color: #a61e4d;
+}
+
+.btn.pink:hover {
+    background-color: #d6336c;
+}
+
+.btn.violet {
+    color: #fff;
+    background-color: #5f3dc4;
+}
+
+.btn.violet:hover {
+    background-color: #7048e8;
+}
+
+.btn.blue {
+    color: #fff;
+    background-color: #1c7ed6;
+}
+
+.btn.blue:hover {
+    background-color: #339af0;
+}
+
+.btn.cyan {
+    color: #fff;
+    background-color: #1098ad;
+}
+
+.btn.cyan:hover {
+    background-color: #22b8cf;
+}
+
+.btn.teal {
+    color: #fff;
+    background-color: #099268;
+}
+
+.btn.teal:hover {
+    background-color: #12b886;
+}
+
+.btn.green {
+    color: #fff;
+    background-color: #2b8a3e;
+}
+
+.btn.green:hover {
+    background-color: #37b24d;
+}
+
+.btn.yellow {
+    color: #000;
+    background-color: #fcc419;
+}
+
+.btn.yellow:hover {
+    background-color: #ffe066;
+}
+
+.btn.orange {
+    color: #fff;
+    background-color: #e8590c;
+}
+
+.btn.orange:hover {
+    background-color: #fd7e14;
+}
+
+/*
+ * Dark mode
+ */
+@media (prefers-color-scheme: dark) {
+    .btn {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .btn:hover {
+        background-color: #212529;
+    }
+}

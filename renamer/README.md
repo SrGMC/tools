@@ -1,4 +1,4 @@
-# Renamer
+# renamer
 
 Simple CLI script to bulk rename files. Extensions are lower cased and preserved, and only the name is changed.
 

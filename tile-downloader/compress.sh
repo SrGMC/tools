@@ -1,0 +1,1 @@
+find ./tiles -type f -iname '*.png' -exec pngquant --force --quality=50-100 --skip-if-larger --strip --speed 3 --verbose {} --output {} \;

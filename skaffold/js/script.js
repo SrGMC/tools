@@ -3,7 +3,7 @@ var currentLanguage = localStorage.getItem('language');
 currentLanguage = currentLanguage == null ? getNavigatorLanguage() : currentLanguage;
 
 function getNavigatorLanguage() {
-	var langs = [['es', 'es'][('fr', 'fr')]];
+	var langs = [['es', 'es'], ['fr', 'fr']];
 	for (var i = 0; i < langs.length; i++) {
 		if (navigator.language.toLowerCase().includes(langs[i][0])) {
 			return langs[i][1];

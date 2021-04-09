@@ -2,14 +2,16 @@
 
 Download tiles as PNG files from any server that uses the `{x}/{y}/{z}` system.
 
-*Disclaimer*: This is only used with a local instance of [OpenMapTiles' MapTiler Server](https://openmaptiles.org/docs/), as it is incompatible with ARMv7 devices. I'm not resposible for anything that happens to you if you try to download tiles from Google Maps or similar services.
+**Disclaimer**: This is only used with a local instance of [OpenMapTiles' MapTiler Server](https://openmaptiles.org/docs/), as it is incompatible with ARMv7 devices. I'm not resposible for anything that happens to you if you try to download tiles from Google Maps or similar services.
 
 ## Table of contents
 
-- [tile-downloader](#tile-donwloader)
+- [tile-downloader](#tile-downloader)
   - [Installation](#installation)
-    - [imagemagick](#imagemagick)
+    - [Requirements](#requirements)
+    - [Compilation](#compilation)
   - [Usage](#usage)
+    - [Example](#example)
 
 ## Installation
 

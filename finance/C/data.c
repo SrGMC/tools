@@ -4,7 +4,7 @@
 // data.c
 // Functions to read and write in-memory data
 //
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 
 #include "data.h"
@@ -112,6 +112,7 @@ int pushTransaction(char *date, char *name, char *category, float value) {
   /* Compute current and estimated */
   computeCurrent();
   computeEstimated();
+  computeAverage();
 
   return index;
 }
@@ -144,6 +145,7 @@ void removeTransaction(int id) {
   /* Compute current and estimated */
   computeCurrent();
   computeEstimated();
+  computeAverage();
 }
 
 /*******************************************************************************
@@ -220,4 +222,32 @@ void computeEstimated() {
                         estimatedTime.tm_mon, currentTime.tm_mon);
   estimated =
       balance - currentMonth + (mDiff * EST_INCOME) - ((mDiff - 1) * (limit));
+}
+
+/*******************************************************************************
+ * Recomputes average spending per month value.
+ ******************************************************************************/
+void computeAverage() {
+  float average = 0;
+
+  int currentMonth = transactions[0].date.tm_mon;
+  int currentYear = transactions[0].date.tm_year;
+
+  float currentAmount = 0;
+
+  for (int i = 0; i < transactionCount; ++i) {
+    if(currentMonth == transactions[i].date.tm_mon && currentYear == transactions[i].date.tm_year) {
+      currentAmount += transactions[i].value;
+    } else {
+      if(average == 0) {
+        average == currentAmount;
+      }
+      average += currentAmount;
+      average /= 2;
+      currentAmount = 0;
+      currentMonth = transactions[i].date.tm_mon;
+      currentYear = transactions[i].date.tm_year;
+    }
+  }
+
 }

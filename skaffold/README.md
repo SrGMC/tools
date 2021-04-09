@@ -11,9 +11,9 @@ Skafold is a template to start creating lightweight web pages quickly and easily
 
 ## Example
 
-Web Scaffold is being used in my [personal webpage](https://alvaro.galisteo.me)
+Web Scaffold is being used in my [personal webpage](https://alvaro.galisteo.melisteo.me)
 
-![https://alvaro.galisteo.me](screenshot.png)
+![https://alvaro.galisteo.melisteo.me](screenshot.png)
 
 ## Why Skafold?
 

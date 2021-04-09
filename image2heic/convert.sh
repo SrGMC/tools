@@ -3,7 +3,7 @@
 # image2heic
 # Converts images to a 3508xH / Wx3508 size HEIC file
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 # Create directories if they don't exist

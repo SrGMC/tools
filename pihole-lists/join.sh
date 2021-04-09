@@ -3,7 +3,7 @@
 # pihole-lists
 # A script to unify and generate blocklists for Pi-Hole.
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2021 - GPLv3
 
 mkdir blocklists/

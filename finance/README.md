@@ -4,14 +4,21 @@ A simple, easy to use, finance manager.
 
 ## Table of contents
 
-- [finance](#bash-launcher)
+- [finance](#finance)
+  - [Table of contents](#table-of-contents)
   - [About](#about)
   - [Features](#features)
   - [Installation](#installation)
     - [Dependencies](#dependencies)
-    - [C Version](#c-version)
+    - [C version](#c-version)
     - [Webapp](#webapp)
   - [Usage](#usage)
+    - [Files](#files)
+      - [Categories](#categories)
+      - [Transactions](#transactions)
+    - [C Version](#c-version-1)
+      - [Configuration](#configuration)
+    - [Webapp](#webapp-1)
   - [Documentation](#documentation)
 
 ## About

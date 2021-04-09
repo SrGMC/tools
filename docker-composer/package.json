@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Alvaro Galisteo (https://alvaro.galisteo.me)",
+  "author": "alvaro.galisteo.melisteo (https://alvaro.galisteo.melisteo.me)",
   "license": "GPL-3.0",
   "dependencies": {
     "yaml": "^1.10.0"

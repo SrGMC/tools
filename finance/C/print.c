@@ -4,7 +4,7 @@
 // print.c
 // CLI printing utilities
 //
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 
 #include "print.h"
@@ -23,6 +23,8 @@ void printHeader(char *subtitle) {
   printf("Spending @ %s:            € %.2f\n", months[viewTime.tm_mon],
          spending);
   printf("Limit:                     € %.2f\n", limit);
+  printf("\n");
+  printf("Avg. spending per month:   € %.2f\n", average);
   printf("Estimated balance @ %s:   € %.2f\n", months[estimatedTime.tm_mon],
          estimated);
   printf("\n");

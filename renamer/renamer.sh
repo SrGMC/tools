@@ -3,7 +3,7 @@
 # renamer
 # Simple CLI script to bulk rename files.
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 set -e

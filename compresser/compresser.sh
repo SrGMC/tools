@@ -3,7 +3,7 @@
 # compresser.sh
 # Tool to compress PDFs and files into 7z archives
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 IFS=""

@@ -4,7 +4,7 @@
 // shared.h
 // Shared headers, imports and global variables
 //
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 
 #include <stdio.h>
@@ -18,7 +18,7 @@
 #define TRANSACTIONS_FILE "transactions.txt"
 
 #define NAME "Finance"
-#define EST_INCOME 447.69
+#define EST_INCOME 0
 
 extern char *months[];
 
@@ -49,6 +49,7 @@ extern float balance;
 extern float limit;
 extern float spending;
 extern float estimated;
+extern float average;
 
 // Time
 extern struct tm currentTime;

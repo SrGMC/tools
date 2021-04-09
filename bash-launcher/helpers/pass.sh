@@ -3,7 +3,7 @@
 # pass-helper
 # Script to manage password-store from the terminal
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 NAME=""

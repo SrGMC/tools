@@ -1,7 +1,7 @@
 // Finance
 // A terminal-based finance manager
 //
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 //
 // Compile with: gcc main.c input.c print.c file.c data.c utils.c shared.h -o
@@ -30,6 +30,7 @@ float balance = 0;
 float limit = 0;
 float spending = 0;
 float estimated = 0;
+float average = 0;
 
 /* Times */
 struct tm viewTime;

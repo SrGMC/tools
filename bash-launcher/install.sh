@@ -3,7 +3,7 @@
 # install.sh
 # bash-launcher installer
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 PASS=1
@@ -33,7 +33,7 @@ done
 
 function help {
     printf "%sbash-launcher installer%s\n" "$(tput bold)" "$(tput sgr 0)"
-    printf "Author: Álvaro Galisteo (https://alvaro.ga)\n"
+    printf "Author: Álvaro Galisteo (https://alvaro.galisteo.me)\n"
     printf "Installer for bash-launcher a command line utility to create menus and/or command launchers with arrow key selection\n"
     printf "Please, read README.md after installation\n\n"
     printf "Arguments:\n"

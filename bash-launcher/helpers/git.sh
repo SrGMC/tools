@@ -3,7 +3,7 @@
 # git-helper
 # Script to manage interactively some git actions
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 function printHeader() {

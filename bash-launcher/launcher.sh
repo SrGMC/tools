@@ -3,7 +3,7 @@
 # bash-launcher
 # Bash based launcher
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 set -o errexit
@@ -44,7 +44,7 @@ function setColor {
 
 function help {
     printf "%sBash shell launcher\n%s" "$(tput bold)" "$(resetTerminal)"
-    printf "Author: Álvaro Galisteo (https://alvaro.ga)\n"
+    printf "Author: Álvaro Galisteo (https://alvaro.galisteo.me)\n"
     printf "Command line utility to create menus and/or command launchers with arrow key selection\n\n"
     printf "Arguments:\n"
     printf "  --config=PATH        Path for the config file.\n"

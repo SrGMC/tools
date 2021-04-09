@@ -3,7 +3,7 @@
 # mdconverter
 # Exports markdown files into websites
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 current="$(pwd)"

@@ -3,7 +3,7 @@
 # compresser.sh / helper.sh
 # Helper script to compress PDF files
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 echo "$3/input/$2/$1 > $3/output/$2/$1"

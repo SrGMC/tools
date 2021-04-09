@@ -3,7 +3,7 @@
 # docker
 # Script to create docker images
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 set -e
@@ -76,15 +76,8 @@ fi
 if [[ "$EUID" = 0 ]]; then
     echo "Running as root"
 else
-    sudo -k # make sure to ask for password on next sudo
-    if sudo true; then
-        echo "Running as root"
-    else
-        echo "error: Wrong sudo password"
-        echo ""
-        help
-        exit 1
-    fi
+	echo "Please, run as root"
+	exit 1
 fi
 
 function buildSilverstrike {

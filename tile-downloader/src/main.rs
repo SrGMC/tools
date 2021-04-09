@@ -6,7 +6,7 @@
 // as it is incompatible with ARMv7 devices. I'm not resposible for anything that happens to you if you try to download 
 // tiles from Google Maps or similar services.
 // 
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2021 - GPLv3
 
 

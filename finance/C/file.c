@@ -4,7 +4,7 @@
 // file.c
 // Functions to read and write from files
 //
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 
 #include "file.h"

@@ -3,7 +3,7 @@
 # system-info-helper
 # Script to display system info
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 upSeconds="$(/usr/bin/cut -d. -f1 /proc/uptime)"

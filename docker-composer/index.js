@@ -2,7 +2,7 @@
 // docker-composer
 // Tool to organize and sort `docker-compose.yaml` files
 // 
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 
 const YAML = require("yaml");

@@ -3,7 +3,7 @@
 # cargo-helper
 # Script to manage interactively cargo and rust commands
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 function printHeader() {

@@ -7,3 +7,4 @@ extern void removeTransaction(int id);
 extern int getCategoryByName(char *string);
 extern void computeCurrent();
 extern void computeEstimated();
+extern void computeAverage();

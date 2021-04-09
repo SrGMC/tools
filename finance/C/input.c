@@ -4,7 +4,7 @@
 // input.c
 // Utilities to input data to store
 //
-// Author: Álvaro Galisteo (https://alvaro.ga)
+// Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 // Copyright 2020 - GPLv3
 
 #include "input.h"

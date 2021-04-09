@@ -3,7 +3,7 @@
 # system-helper
 # Script to manage interactively some system settings
 #
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2020 - GPLv3
 
 function printHeader() {

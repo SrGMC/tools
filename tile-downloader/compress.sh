@@ -5,7 +5,7 @@
 # 
 # Script to optimize images using pngquant
 # 
-# Author: Álvaro Galisteo (https://alvaro.ga)
+# Author: Álvaro Galisteo (https://alvaro.galisteo.me)
 # Copyright 2021 - GPLv3
 
 find ./tiles -type f -iname '*.png' -exec pngquant --force --quality=50-100 --skip-if-larger --strip --speed 3 --verbose {} --output {} \;

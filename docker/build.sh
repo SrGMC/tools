@@ -6,9 +6,12 @@
 # Author: Álvaro Galisteo (https://alvaro.ga)
 # Copyright 2020 - GPLv3
 
+set -e
+
 function help {
     echo -e "$(tput bold)docker$(tput sgr 0)"
     echo -e "Script to create docker images"
+    echo -e "Note: Requires sudo"
     echo -e ""
     echo -e "USAGE:"
     echo -e "    ./build.sh [FLAGS] [OPTIONS]"
@@ -67,6 +70,21 @@ if [[ $USERNAME == '' ]]; then
 	echo ""
 	help
 	exit 1
+fi
+
+# Ask for sudo
+if [[ "$EUID" = 0 ]]; then
+    echo "Running as root"
+else
+    sudo -k # make sure to ask for password on next sudo
+    if sudo true; then
+        echo "Running as root"
+    else
+        echo "error: Wrong sudo password"
+        echo ""
+        help
+        exit 1
+    fi
 fi
 
 function buildSilverstrike {

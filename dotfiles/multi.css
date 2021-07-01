@@ -1,0 +1,14 @@
+a:hover::after {
+  content: attr(href);
+  position: fixed;
+  left: 4px;
+  bottom: 4px;
+  padding: 4px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont;
+  font-weight: normal;
+  color: black;
+  background: ghostwhite;
+  border: solid 1px black;
+  border-radius: 1px;
+}

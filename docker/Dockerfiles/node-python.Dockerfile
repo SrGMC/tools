@@ -1,4 +1,4 @@
-FROM python:buster
+FROM python:3.11.0rc2-slim
 
 # Install node prereqs, nodejs and yarn
 # Ref: https://deb.nodesource.com/setup_12.x

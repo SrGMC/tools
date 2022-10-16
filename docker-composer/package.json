@@ -10,6 +10,6 @@
   "author": "alvaro.galisteo.melisteo (https://alvaro.galisteo.melisteo.me)",
   "license": "GPL-3.0",
   "dependencies": {
-    "yaml": "^1.10.0"
+    "yaml": "^1.10.2"
   }
 }

@@ -1,4 +1,4 @@
-FROM python:3.11.0rc2-slim
+FROM python:3.11.1-slim
 
 # Install node prereqs, nodejs and yarn
 # Ref: https://deb.nodesource.com/setup_12.x
